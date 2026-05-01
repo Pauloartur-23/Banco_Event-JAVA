@@ -1,6 +1,5 @@
-package com.eventostec.api.domain.coupon;
+package com.eventostec.api.domain.address;
 
-import java.sql.Date;
 import java.util.UUID;
 
 import com.eventostec.api.domain.event.Event;
@@ -16,22 +15,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Table(name = "address")
 @Entity
-@Table(name = "coupon")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class coupon {
+public class Address {
     @Id
     @GeneratedValue
     private UUID id;
-    private String code;
-    private Integer discount;
-    private Date valid;
+
+    private String city;
+
+    private String uf;
 
     @ManyToOne
     @JoinColumn(name = "event_id")
     private Event event;
-    
 }
